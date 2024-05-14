@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Departments")
 public class Department {
-
+  // need to handle the case where department is deleted and employees are still there
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer departmentId;

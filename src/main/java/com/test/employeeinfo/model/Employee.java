@@ -25,7 +25,7 @@ public class Employee {
     private String email;
     @Column(name = "phone")
     private String phone;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE}) // unable to use fetch = FetchType.LAZY. need to find out why
     @JoinColumn(name = "department_id")
     private Department department;
     @Column(name = "position")
