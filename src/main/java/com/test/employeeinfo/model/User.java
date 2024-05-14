@@ -7,11 +7,22 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@Table(name = "Users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private Integer userId;
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "role")
+    private String role;
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+    // Getters and setters
+
+
 }

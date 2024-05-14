@@ -34,9 +34,9 @@ public class UserServiceSelf implements UserService{
         Optional<User> userOptional = userRepository.findById(id);
         if(userOptional.isPresent()){
             User savedUser= userOptional.get();
-            if(user.getFirstName()!=null) savedUser.setFirstName(user.getFirstName());
-            if(user.getLastName()!=null) savedUser.setLastName(user.getLastName());
-            if(user.getEmail()!=null) savedUser.setEmail(user.getEmail());
+            if(user.getUsername()!=null) savedUser.setUsername(user.getUsername());
+            if(user.getPassword()!=null) savedUser.setPassword(user.getPassword());
+
             return userRepository.save(savedUser);
         }
 
@@ -52,6 +52,6 @@ public class UserServiceSelf implements UserService{
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepository.findAll();
     }
 }
